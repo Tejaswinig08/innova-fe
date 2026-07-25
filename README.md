@@ -35,46 +35,6 @@ This repository contains the **frontend** of the Civiora application, built usin
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-<<<<<<< HEAD
-## 📸 Screenshots
-
-> **Note:** Please paste your screenshots below to showcase the application.
-
-![Dashboard Placeholder](https://via.placeholder.com/800x450.png?text=Dashboard+Screenshot)
-*Screenshot: Dashboard*
-
-![Feature Placeholder](https://via.placeholder.com/800x450.png?text=Feature+Screenshot)
-*Screenshot: Feature*
-
-## 🛠️ Installation & Setup
-
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   The application will be available at `http://localhost:5173`.
-
-## 📜 Available Scripts
-
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the app for production.
-- `npm run lint`: Lints the codebase using ESLint.
-- `npm run preview`: Previews the production build locally.
-
-## 📦 Key Dependencies
-- `react-router-dom`: Routing
-- `html5-qrcode` & `qrcode`: QR code generation and scanning
-=======
 ---
 
 # 📂 Project Structure
@@ -225,4 +185,3 @@ Civiora aims to bridge the technological gap between premium gated communities a
 National Hackathon Project
 
 ---
->>>>>>> 2e2ed472d479d6279dc76427359203de0858778f
