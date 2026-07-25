@@ -61,7 +61,37 @@ frontend
 
 # 📸 Application Screenshots
 
+## Landing Page
 
+![Landing Page](./innovahack/landing_page)
+
+## Login Page
+
+![Login Page](./innovahack/login.png)
+
+## Dashboard
+
+![Dashboard](./innovahack/dashboard.png)
+
+## AI Assistant
+
+![AI Assistant](./innovahack/civioraai.png)
+
+Facility Booking
+
+QR Code
+
+Notices
+
+Chats
+
+Contact US
+
+Annual Accounts
+
+Payments
+
+Complaints
 
 
 
