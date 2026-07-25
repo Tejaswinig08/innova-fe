@@ -95,11 +95,11 @@ frontend
 
 ## Contact US
 
-![Contact US](./innovahack/contact us.png)
+![Contact US](./innovahack/contact_us.png)
 
 ## Annual Accounts
 
-![Annual Accounts](./innovahack/annual accounts.png)
+![Annual Accounts](./innovahack/annual_accounts.png)
 
 ## Payments
 
