@@ -63,7 +63,7 @@ frontend
 
 ## Landing Page
 
-![Landing Page](./innovahack/landing_page)
+![Landing Page](./innovahack/landing_page.png)
 
 ## Login Page
 
