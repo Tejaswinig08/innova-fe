@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* Tailwind v4 class-based dark mode: toggling .dark on <html> activates dark: variants */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* === Civiora color tokens === */
+  --color-forest: #1E3932;
+  --color-forest-light: #2A4A41;
+  --color-forest-dark: #142822;
+  --color-beige: #EFE6D8;
+  --color-beige-dark: #E2D5BF;
+  --color-surface: #FAF7F2;
+  /* cream: stable light tone for text/elements on surfaces that are always
+     dark (sidebar, forest-tinted highlight cards, primary buttons) — unlike
+     beige, this does NOT flip in dark mode, since those surfaces stay dark. */
+  --color-cream: #EFE6D8;
+  --color-gold: #B89B5E;
+  --color-gold-light: #CBB37D;
+  --color-gold-dark: #93793F;
+  --color-brown: #3A2E2A;
+  --color-brown-light: #5A4A42;
+
+  /* accent: the "live" accent color used for links/icons/focus rings.
+     Maps to forest in light mode, brightens for legibility in dark mode. */
+  --color-accent: #1E3932;
+  --color-accent-light: #2A4A41;
+
+  /* status colors, tuned to sit in this palette rather than stock red/green */
+  --color-status-urgent: #A6452F;
+  --color-status-warn: #B8893E;
+  --color-status-ok: #3F6E52;
+  --color-status-info: #3E5C73;
+
+  /* === Type === */
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* === Radius: society-gate arch motif uses generous top radius, sharp base === */
+  --radius-arch: 1.75rem 1.75rem 0.25rem 0.25rem;
+}
+
+/* === Dark theme: "Midnight Jade" — a deep slate-charcoal night palette
+   with a cool jade accent and warm brass gold, distinct from the light
+   theme's cream/forest look rather than a simple color inversion. === */
+.dark {
+  --color-beige: #11161A;
+  --color-beige-dark: #0B0E11;
+  --color-surface: #232931;
+  --color-brown: #E9EEEC;
+  --color-brown-light: #9FB0AE;
+  --color-accent: #4FD1A0;
+  --color-accent-light: #7EE0BB;
+  --color-gold: #E3BD72;
+  --color-gold-light: #EFD194;
+  --color-gold-dark: #C49A4A;
+
+  /* forest tokens drive the sidebar, hero sections, and highlight cards —
+     deepen and cool them slightly so they sit naturally against the new
+     slate background instead of the light theme's warmer forest green. */
+  --color-forest: #14201C;
+  --color-forest-light: #1E2F29;
+  --color-forest-dark: #0C1411;
+
+  /* status colors brightened a touch for legibility on dark surfaces */
+  --color-status-urgent: #E27A5E;
+  --color-status-warn: #E3BD72;
+  --color-status-ok: #4FD1A0;
+  --color-status-info: #6FA8C9;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  html,
+  body {
+    background-color: var(--color-beige);
+  }
+  body {
+    color: var(--color-brown);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-forest-dark);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-dark);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ─── Admin page styles ─── */
+
+/* Gold gradient for table headers and banners */
+.admin-gradient {
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
+}
+
+/* Summary cards with fadeUp animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Modal entrance */
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.2s ease-out;
+}
+
+/* Toast entrance */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-toast-in {
+  animation: toastIn 0.35s ease-out;
+}
+
+/* Admin table styling */
+@layer components {
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .admin-table thead tr {
+    background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
+  }
+  .admin-table thead th {
+    padding: 0.75rem 1.25rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-forest-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .admin-table tbody tr {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brown) 6%, transparent);
+    transition: background 0.15s;
+  }
+  .admin-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .admin-table tbody tr:hover {
+    background: color-mix(in srgb, var(--color-gold) 6%, transparent);
+  }
+  .admin-table tbody td {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
+    color: color-mix(in srgb, var(--color-brown) 85%, transparent);
+  }
+  .admin-table tfoot tr {
+    border-top: 2px solid var(--color-gold);
+    background: color-mix(in srgb, var(--color-gold) 6%, transparent);
+  }
+  .admin-table tfoot td {
+    padding: 0.875rem 1.25rem;
+    font-weight: 800;
+    font-size: 0.9375rem;
+  }
+
+  /* Net balance bar */
+  .net-balance-bar {
+    border: 2px solid var(--color-gold);
+  }
+
+  /* Fiscal year label */
+  .fy-label {
+    border: 1px solid var(--color-gold);
+    background: color-mix(in srgb, var(--color-gold) 8%, var(--color-surface));
+    color: var(--color-gold-dark);
+  }
+
+  /* Admin stat card with gold top border */
+  .admin-stat-card {
+    border-top: 3px solid var(--color-gold);
+  }
+}
+
+/* Form input focus styles for admin modals/forms */
+.admin-input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1.5px solid color-mix(in srgb, var(--color-brown) 15%, transparent);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--color-surface);
+  color: var(--color-brown);
+  font-family: inherit;
+}
+.admin-input:focus {
+  border-color: var(--color-gold);
+  background: color-mix(in srgb, var(--color-gold) 5%, var(--color-surface));
+}
+.admin-input::placeholder {
+  color: color-mix(in srgb, var(--color-brown) 40%, transparent);
+}
+
