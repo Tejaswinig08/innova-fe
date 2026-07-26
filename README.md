@@ -165,7 +165,6 @@ http://localhost:5173
 - HTML5 QRCode
 - QRCode
 - React Icons
-- Framer Motion (if used)
 
 ---
 
@@ -192,6 +191,6 @@ Civiora aims to bridge the technological gap between premium gated communities a
 
 **Binary Architects**
 
-National Hackathon Project
+InnovaHack - National Hackathon Project
 
 ---
